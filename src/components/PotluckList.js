@@ -15,7 +15,7 @@ class PotluckList extends Component {
 
   list() {
     return this.props.potlucks.PotlucksReducer.map((potluck) => {
-      return <li>{potluck.potluckTitle}</li>;
+      return <li>{potluck.potluckTitle} - {potluck.potluckDate} - {potluck.potluckTheme}</li>;
     });
   }
 

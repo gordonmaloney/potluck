@@ -15,7 +15,7 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleAddPotluck: (title) => dispatch(addPotluck(title)),
+    handleAddPotluck: (title, date, theme) => dispatch(addPotluck(title, date, theme)),
   };
 };
 
@@ -32,7 +32,7 @@ class CreatePotluck extends Component {
   }
 
   handleSubmit(values) {
-    this.props.handleAddPotluck(values.title);
+    this.props.handleAddPotluck(values.title,values.date, values.theme);
   }
 
   
