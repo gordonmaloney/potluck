@@ -1,0 +1,2 @@
+export const ADD_POTLUCK = 'ADD_POTLUCK';
+export const ADD_ESSENTIALS = 'ADD_ESSENTIALS'

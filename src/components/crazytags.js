@@ -5,12 +5,21 @@ import Tags from '@yaireo/tagify/dist/react.tagify'
 
 // Tagify settings object
 const baseTagifySettings = {
-  blacklist: ["xxx", "yyy", "zzz"],
-  maxTags: 6,
+  blacklist: [],
+  whitelist: [
+    { value:'sour cream', searchBy:'cream, sour' },
+    { value:'guacamole', searchBy:'guac, avocado' },
+    { value:'hummus', searchBy:'houmous, hoummos, homous, houmos, houmus, humus' },
+    { value:'barbeque and coals', searchBy:'barbeque, bbq' },
+    { value:'barbeque without coals', searchBy:'barbeque, bbq' },
+
+
+  ],
+  maxTags: 50,
   //backspace: "edit",
   placeholder: "type something",
   dropdown: {
-    enabled: 0 // a;ways show suggestions dropdown
+    enabled: 1 // a;ways show suggestions dropdown
   }
 }
 
@@ -18,7 +27,6 @@ const baseTagifySettings = {
 // itself. This example is a bit elaborate, to demonstrate what's possible.
 const CrazyTags = () => {
   const tagifyRef1 = useRef()
-  const tagifyRefDragSort = useRef()
 
   // just a name I made up for allowing dynamic changes for tagify settings on this component
   const [tagifySettings, setTagifySettings] = useState([])
@@ -41,7 +49,7 @@ const CrazyTags = () => {
       () =>
         setTagifyProps((lastProps) => ({
           ...lastProps,
-          defaultValue: ["abc"],
+          defaultValue: [""],
           showFilteredDropdown: false
         })),
       5000
@@ -55,7 +63,8 @@ const CrazyTags = () => {
   }
 
   const onChange = useCallback(e => {
-    console.log("CHANGED:", e.detail.value)
+    //console.log(e.detail.tagify.value)
+    console.log("Essentials: ", e.detail.tagify.value.map(test => {return (test.value)}))
   }, [])
 
   return (
