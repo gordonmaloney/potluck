@@ -1,0 +1,25 @@
+@import "@yaireo/tagify/dist/tagify.css";
+
+html,
+body,
+#app {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+body .tagify {
+  margin-bottom: 3em;
+  --tag-bg: #007bff;
+  --tag-text-color: white;
+  --tag-text-color--edit: var(--tag-bg);
+  --tag-hover: #007bff;
+  --tag-remove-btn-color: white;
+}
