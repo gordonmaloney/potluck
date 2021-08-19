@@ -3,30 +3,44 @@ import { connect } from "react-redux";
 
 function mapStateToProps(state) {
   return {
-    potlucks: state.ActionsReduced,
-    essentials: state.essentials,
+    potlucks: state.ActionsReduced.PotlucksReducer,
+    essentials: state.ActionsReduced.EssentialsReducer,
   };
 }
 
 class PotluckList extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   list() {
-    return this.props.potlucks.PotlucksReducer.map((potluck) => {
-      return <li>{potluck.potluckTitle} - {potluck.potluckDate} - {potluck.potluckTheme}</li>;
+    return this.props.potlucks.map((potluck) => {
+      return (
+        <li>
+          {potluck.potluckTitle} - {potluck.potluckDate} -{" "}
+          {potluck.potluckTheme}
+        </li>
+      );
+    });
+  }
+
+  essentials() {
+    return this.props.essentials.map((essential) => {
+      return (
+        <li>
+          {essential.essentials}
+        </li>
+      );
     });
   }
 
   render() {
-    console.log(this.props.potlucks.PotlucksReducer);
+    console.log("testttt", this.props.essentials)
+
     return (
       <>
         <>
-          test
-          {this.props.potlucks.PotlucksReducer.length}
+          Essentials: {this.props.essentials.length}
+          <br />
           {this.list()}{" "}
+          {this.essentials()}
         </>
       </>
     );

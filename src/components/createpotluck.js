@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import { Card, CardHeader, CardBody, CardFooter, Button } from "reactstrap";
+import { Card, CardHeader, CardBody, Button } from "reactstrap";
 import { Control, LocalForm } from "react-redux-form";
 import CrazyTags from "./crazytags";
-import allReducers from "./redux/combineReducers";
 import { connect } from "react-redux";
 import { addPotluck } from "./redux/AddPotluck";
-import { bindActionCreators } from "redux";
 
 function mapStateToProps(state) {
   return {

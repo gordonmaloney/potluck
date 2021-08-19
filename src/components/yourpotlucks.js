@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardHeader, CardBody, CardFooter, Button } from "reactstrap";
-import { Control, LocalForm, Label } from "react-redux-form";
+import { Control, LocalForm } from "react-redux-form";
 
 export default function YourPotlucks() {
   return (

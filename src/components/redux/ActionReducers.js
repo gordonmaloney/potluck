@@ -4,7 +4,8 @@ import EssentialsReducer from "./EssentialsReducer";
 
 function ActionReducers(
   state = {
-    PotlucksReducer
+    PotlucksReducer,
+    EssentialsReducer,
   },
   action
 ) {
@@ -15,9 +16,10 @@ function ActionReducers(
         PotlucksReducer: [...state.PotlucksReducer, { ...action.payload }],
       };
     case ActionTypes.ADD_ESSENTIALS:
+      console.log("reducing...", action.payload.essentials)
       return {
         ...state,
-        essentials: [...state.essentials, { ...action.payload }],
+        EssentialsReducer: [{ ...action.payload }],
       };
     default:
       return state;

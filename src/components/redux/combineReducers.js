@@ -9,6 +9,4 @@ const allReducers = combineReducers({
     essentials: EssentialsReducer
 });
  
-console.log(allReducers)
-
 export default allReducers

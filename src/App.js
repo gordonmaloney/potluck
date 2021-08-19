@@ -1,22 +1,18 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row } from "reactstrap";
 import MainMenu from "./components/mainmenu";
 import { connect } from "react-redux";
 import PotluckList from "./components/PotluckList";
 
 function mapStateToProps(state) {
   return {
-    potlucks: state.ActionsReduced,
-    essentials: state.essentials
+    potlucks: state.ActionsReduced.PotlucksReducer,
+    essentials: state.ActionsReduced.EssentialsReducer
   };
 }
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
-    console.log(this);
     return (
       <Container>
         <Row>
