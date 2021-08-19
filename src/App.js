@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
 import MainMenu from "./components/mainmenu";
 import { connect } from "react-redux";
-
+import PotluckList from "./components/PotluckList";
 
 function mapStateToProps(state) {
   return {
@@ -24,6 +24,9 @@ class App extends Component {
         </Row>
         <Row>
           <MainMenu />
+        </Row>
+        <Row>
+          <PotluckList />
         </Row>
       </Container>
     );
