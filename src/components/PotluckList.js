@@ -9,38 +9,53 @@ function mapStateToProps(state) {
 }
 
 class PotluckList extends Component {
-
   list() {
     return this.props.potlucks.map((potluck) => {
       return (
+        <>
         <li>
-          {potluck.potluckTitle} - {potluck.potluckDate} -{" "}
+          <b>Potluck details:</b> {potluck.potluckTitle} - {potluck.potluckDate} -{" "}
           {potluck.potluckTheme}
         </li>
+        <li className="mb-4"><b>Essentials:</b>{potluck.essentials.map((essential, index) => {
+return <> {essential}{index !== potluck.essentials.length-1 ? "," : ""} </> } ) }</li>
+
+        </>
       );
     });
   }
 
-  essentials() {
-    return this.props.essentials.map((essential) => {
-      return (
-        <li>
-          {essential.essentials}
-        </li>
-      );
+  /*essentials() {
+    return this.props.essentials.map((essentialObj) => {
+      return essentialObj.essentials.map((essential) => {
+        return (
+          <>
+            {essentialObj.potluckTitle} - {essential}
+            <br />
+          </>
+        );
+      });
+    });
+  }*/
+
+/*
+essentials() {
+    return this.props.essentials.map((essentialObj) => {
+        return (
+          <>
+            {essentialObj.potluckTitle} - {essentialObj.essentials.map((essential, index) => {
+return <> {essential}{index !== essentialObj.essentials.length-1 ? "," : ""} </> } ) }
+            <br />
+          </>
+        );
     });
   }
-
+*/
   render() {
-    console.log("testttt", this.props.essentials)
-
     return (
       <>
         <>
-          Essentials: {this.props.essentials.length}
-          <br />
-          {this.list()}{" "}
-          {this.essentials()}
+          {this.list()}
         </>
       </>
     );

@@ -7,13 +7,14 @@ import { addPotluck } from "./redux/AddPotluck";
 
 function mapStateToProps(state) {
   return {
-    potlucks: state.potlucks
+    potlucks: state.ActionsReduced.PotlucksReducer,
+    essentials: state.ActionsReduced.EssentialsReducer,
   };
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleAddPotluck: (title, date, theme) => dispatch(addPotluck(title, date, theme)),
+    handleAddPotluck: (title, date, theme, essentials) => dispatch(addPotluck(title, date, theme, essentials)),
   };
 };
 
@@ -30,7 +31,8 @@ class CreatePotluck extends Component {
   }
 
   handleSubmit(values) {
-    this.props.handleAddPotluck(values.title,values.date, values.theme);
+    console.log("final essentials: ", this.props.essentials[0].essentials)
+    this.props.handleAddPotluck(values.title,values.date, values.theme, this.props.essentials[0].essentials);
   }
 
   

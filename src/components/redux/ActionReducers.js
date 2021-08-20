@@ -13,10 +13,9 @@ function ActionReducers(
     case ActionTypes.ADD_POTLUCK:
       return {
         ...state,
-        PotlucksReducer: [...state.PotlucksReducer, { ...action.payload }],
+        PotlucksReducer: [{ ...action.payload }, ...state.PotlucksReducer],
       };
     case ActionTypes.ADD_ESSENTIALS:
-      console.log("reducing...", action.payload.essentials)
       return {
         ...state,
         EssentialsReducer: [{ ...action.payload }],

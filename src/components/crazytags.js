@@ -5,13 +5,14 @@ import { connect } from "react-redux";
 
 function mapStateToProps(state) {
   return {
-    essentials: state.essentials,
+    potlucks: state.ActionsReduced.PotlucksReducer,
+    essentials: state.ActionsReduced.EssentialsReducer,
   };
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleAddEssentials: (essential) => dispatch(addEssentials(essential)),
+    handleAddEssentials: (potluckTitle, essential) => dispatch(addEssentials(potluckTitle, essential)),
   };
 };
 
@@ -38,8 +39,8 @@ const baseTagifySettings = {
 
 
 function CrazyTags(props) {
-  const handleSubmit = (essentials) => {
-    props.handleAddEssentials(essentials);
+  const handleSubmit = (potluckTitle, essentials) => {
+    props.handleAddEssentials(potluckTitle, essentials);
   };
 
   const tagifyRef1 = useRef();
@@ -83,7 +84,7 @@ function CrazyTags(props) {
         return test.value;
       })
     );
-    handleSubmit(
+    handleSubmit(props.potlucks.length,
       e.detail.tagify.value.map((test) => {
         return test.value;
       })
